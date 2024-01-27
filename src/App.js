@@ -77,6 +77,7 @@ import React from 'react';
 import './App.css';
 // NOTE: to use states, have to import useState hook from react
 import { useState } from "react";
+import { useEffect } from "react";
 
 
 
@@ -86,6 +87,18 @@ const App = () => {
 
   // NOTE: whenever you call a function and it starts with "use", that is a "hook" in react
   const [counter, setCounter] = useState(0);
+
+  // NOTE: another hook, useEffect. Allows us to do something on some kind of an effect
+  // the below code happens as soon as the component renders on the page
+  // NOTE: important!!! Never modify state manually
+  // react state can only be changed by using it's own setter function
+
+  // NOTE: second parameter to useEffect, which is the parameter array
+  // when dependency array is empty, this setCounter function will only happen at the initial load of the component
+
+  useEffect(() => {
+    setCounter(100);
+  }, []);
 
   // NOTE: () =>    <--- this is a callback function
 
